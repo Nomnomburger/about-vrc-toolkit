@@ -1,3 +1,6 @@
+import 'dart:html';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart';
 import 'dart:js' as js;
@@ -40,8 +43,7 @@ class CardWidgetOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Card(
+    return Card(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -50,21 +52,8 @@ class CardWidgetOne extends StatelessWidget {
               title: Text('The Enchanted Nightingale'),
               subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
             ),
-            ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  child: const Text('BUY TICKETS'),
-                  onPressed: () {/* ... */},
-                ),
-                FlatButton(
-                  child: const Text('LISTEN'),
-                  onPressed: () {/* ... */},
-                ),
-              ],
-            ),
           ],
         ),
-      ),
     );
   }
 }
@@ -128,12 +117,125 @@ class FAB extends StatelessWidget {
 
 class LinkGiver extends StatelessWidget {
   Widget build(BuildContext context) {
-    return RaisedButton(
-      child: const Text('View tech demos', style: TextStyle(fontSize: 20)),
-      color: Colors.yellow,
-      onPressed: () {
-        js.context.callMethod("open", ["https://www.youtube.com/playlist?list=PLMwugHAAXO2MIhKC1L4Qo3Cq4dQUu80uj"]);
-      },
+    return Container(
+      height: 50,
+      width: 180,
+      child: RaisedButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60.0)),
+        child: const Text('View tech demos', style: TextStyle(fontSize: 20)),
+        color: Colors.yellow,
+        onPressed: () {
+          js.context.callMethod("open", ["https://www.youtube.com/playlist?list=PLMwugHAAXO2MIhKC1L4Qo3Cq4dQUu80uj"]);
+        },
+      ),
+    );
+  }
+}
+
+class CardOne extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      width: 500,
+      height: 300,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.lightbulb_outline),
+                title: Text('Smart Picks', style: TextStyle(fontFamily: 'RobotoMono')),
+                subtitle: Text('Uses combined data sources to determine the team that is the best pick for us. Algorithms calculate a ranking that is displayed into the app from our Azure CosmosDB Database.', style: TextStyle(fontFamily: 'RobotoMono')),
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardTwo extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      width: 500,
+      height: 300,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.calendar_today),
+                title: Text('Schedule', style: TextStyle(fontFamily: 'RobotoMono')),
+                subtitle: Text('Schedule brings you the most relevant information about the tournament, including team status and rankings. Compared to VEX Via, schedule works with selecting the Event Code, so no bothersome filters required.', style: TextStyle(fontFamily: 'RobotoMono')),
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardThree extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      width: 500,
+      height: 300,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.timer),
+                title: Text('Integrated Timer', style: TextStyle(fontFamily: 'RobotoMono')),
+                subtitle: Text('The integrated timer helps us practice for skills runs, or time other teams for scouting data. When in scouting mode, the recorded time for each subject (such as scoring) will be sent to the database.', style: TextStyle(fontFamily: 'RobotoMono')),
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardFour extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      width: 500,
+      height: 300,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.assignment),
+                title: Text('Scouting', style: TextStyle(fontFamily: 'RobotoMono')),
+                subtitle: Text('Enter information about matches or teams and send it directly to our database. Scouted information will affect our Smart Picks, making the process more human and accurate.', style: TextStyle(fontFamily: 'RobotoMono')),
+              ),
+
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -143,121 +245,65 @@ class BodyStuff extends StatelessWidget {
     return Center(
       // Center is a layout widget. It takes a single child and positions it
       // in the middle of the parent.
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Spacer(flex: 4),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'The next generation of VEX scouting',
-              style: TextStyle(
-                fontSize: 70,
-                color: Colors.white,
+      child: ListView(
+        scrollDirection: Axis.vertical,
+        children:[ Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            //Container(child: Spacer(flex: 4)),
+            Container(
+              padding: EdgeInsets.only(top: 180),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'The next generation of VEX scouting',
+                  style: TextStyle(
+                    fontSize: 70,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-              textAlign: TextAlign.center,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('VRC Toolkit by Team 839',
-              style: TextStyle(fontSize: 30, color: Colors.white70),
-              textAlign: TextAlign.center,
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('VRC Toolkit by Team 839',
+                  style: TextStyle(fontSize: 30, color: Colors.white70),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: LinkGiver(),
-          ),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: LinkGiver(),
+              ),
+            ),
+            Container(
+              height: 220,
+              //width: 100,
+              child: Center(
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
 
-          Spacer(flex: 2),
-          /*Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(Icons.album, size: 50),
-                            title: Text('Heart Shaker'),
-                            subtitle: Text('TWICE'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  children: <Widget>[
+                    CardOne(),
+                    CardTwo(),
+                    CardThree(),
+                    CardFour()
+                  ],
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(Icons.album, size: 50),
-                            title: Text('Heart Shaker'),
-                            subtitle: Text('TWICE'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(Icons.album, size: 50),
-                            title: Text('Heart Shaker'),
-                            subtitle: Text('TWICE'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(Icons.album, size: 50),
-                            title: Text('Heart Shaker'),
-                            subtitle: Text('TWICE'),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),*/
-          Spacer(flex: 3),
-        ],
+
+              ),
+            ),
+
+            //Container(child: Spacer(flex: 2)),
+
+            //Container(child: Spacer(flex: 3)),
+          ],
+        ),
+      ],
       ),
     );
   }
