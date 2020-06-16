@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
+import 'dart:js' as js;
 
 void main() {
   runApp(MyApp());
@@ -125,6 +126,18 @@ class FAB extends StatelessWidget {
   }
 }
 
+class LinkGiver extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: const Text('View tech demos', style: TextStyle(fontSize: 20)),
+      color: Colors.yellow,
+      onPressed: () {
+        js.context.callMethod("open", ["https://www.youtube.com/playlist?list=PLMwugHAAXO2MIhKC1L4Qo3Cq4dQUu80uj"]);
+      },
+    );
+  }
+}
+
 class BodyStuff extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
@@ -151,6 +164,10 @@ class BodyStuff extends StatelessWidget {
               style: TextStyle(fontSize: 30, color: Colors.white70),
               textAlign: TextAlign.center,
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: LinkGiver(),
           ),
 
           Spacer(flex: 2),
@@ -245,3 +262,4 @@ class BodyStuff extends StatelessWidget {
     );
   }
 }
+
