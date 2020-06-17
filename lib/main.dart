@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'colors.dart';
 import 'dart:js' as js;
 
@@ -107,7 +108,7 @@ class FAB extends StatelessWidget {
         onPressed: () {
           Scaffold.of(context).showSnackBar(
             SnackBar(
-              content: Text('More info about the VRC Toolkit Project will be provided on this site in the future! Stay tuned.'),
+              content: Text('This site is about Team 839s VRC Toolkit Project. Stay tuned.'),
             ),
           );
         },
@@ -136,7 +137,7 @@ class CardOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20),
-      width: 500,
+      width: 450,
       height: 300,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -163,7 +164,7 @@ class CardTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20),
-      width: 500,
+      width: 450,
       height: 300,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -175,7 +176,7 @@ class CardTwo extends StatelessWidget {
               const ListTile(
                 leading: Icon(Icons.calendar_today),
                 title: Text('Schedule', style: TextStyle(fontFamily: 'RobotoMono')),
-                subtitle: Text('Schedule brings you the most relevant information about the tournament, including team status and rankings. Compared to VEX Via, schedule works with selecting the Event Code, so no bothersome filters required.', style: TextStyle(fontFamily: 'RobotoMono')),
+                subtitle: Text('Schedule brings you the most relevant information about the tournament, including team status and rankings. Compared to VEX Via, schedule works with selecting the Event Code, so no bothersome filters required. Powered by the Concurrent Open Source Project.', style: TextStyle(fontFamily: 'RobotoMono')),
               ),
 
             ],
@@ -190,7 +191,7 @@ class CardThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20),
-      width: 500,
+      width: 450,
       height: 300,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -217,7 +218,7 @@ class CardFour extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20),
-      width: 500,
+      width: 450,
       height: 300,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -239,6 +240,126 @@ class CardFour extends StatelessWidget {
     );
   }
 }
+
+class CardFive extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      width: 600,
+      //height: 1000,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.developer_mode),
+                title: Text('React Native', style: TextStyle(fontFamily: 'RobotoMono')),
+                subtitle: Text('Built using the powerful React Native platform and JavaScript, we are able to use the app on both iOS and Android. JavaScript enables us to create new features fast and reliably.', style: TextStyle(fontFamily: 'RobotoMono')),
+              ),
+              ButtonBar(
+                children: <Widget>[
+                  FlatButton(
+                    child: const Text('MORE'),
+                    onPressed: () {js.context.callMethod("open", ["https://reactnative.dev/"]);},
+                  ),
+                  FlatButton(
+                    child: const Text('GITHUB'),
+                    onPressed: () {js.context.callMethod("open", ["https://github.com/facebook/react-native"]);},
+                  ),
+                ],
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class CardSix extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      width: 600,
+      //height: 1000,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.http),
+                title: Text('Axios', style: TextStyle(fontFamily: 'RobotoMono')),
+                subtitle: Text('Axios provides reliable and easy HTTP GET requests for the VEXDB API. Axios powers the backend of everything, including getting data into the Database.', style: TextStyle(fontFamily: 'RobotoMono')),
+              ),
+              ButtonBar(
+                children: <Widget>[
+                  FlatButton(
+                    child: const Text('MORE'),
+                    onPressed: () {js.context.callMethod("open", ["https://www.npmjs.com/package/axios"]);},
+                  ),
+                  FlatButton(
+                    child: const Text('GITHUB'),
+                    onPressed: () {js.context.callMethod("open", ["https://github.com/axios/axios"]);},
+                  ),
+                ],
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CardSeven extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      width: 600,
+      //height: 1000,
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.widgets),
+                title: Text('Concurrent', style: TextStyle(fontFamily: 'RobotoMono')),
+                subtitle: Text('VRC Toolkit is based on Concurrent, a piece of Open Source Software for VEX Robotics Competition. This allowed us to get up to speed with latest features, as well as have a streamlined schedule section.', style: TextStyle(fontFamily: 'RobotoMono')),
+              ),
+              ButtonBar(
+                children: <Widget>[
+                  /*FlatButton(
+                    child: const Text('MORE'),
+                    onPressed: () {js.context.callMethod("open", ["https://www.youtube.com/playlist?list=PLMwugHAAXO2MIhKC1L4Qo3Cq4dQUu80uj"]);},
+                  ), */
+                  FlatButton(
+                    child: const Text('GITHUB'),
+                    onPressed: () {js.context.callMethod("open", ["https://github.com/WontonSoup777/concurrent"]);},
+                  ),
+                ],
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
 
 class BodyStuff extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -281,7 +402,7 @@ class BodyStuff extends StatelessWidget {
               ),
             ),
             Container(
-              height: 220,
+              height: 260,
               //width: 100,
               child: Center(
                 child: ListView(
@@ -297,6 +418,30 @@ class BodyStuff extends StatelessWidget {
 
               ),
             ),
+
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: Text('Using Open Source Technology',
+                  style: TextStyle(fontSize: 30, color: Colors.white70),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Column(
+                  children: <Widget> [
+                    CardFive(),
+                    CardSix(),
+                    CardSeven(),
+                  ],
+                )
+              ),
+            ),
+            Container(
+              height: 80,
+            )
 
             //Container(child: Spacer(flex: 2)),
 
